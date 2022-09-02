@@ -22,7 +22,6 @@ const Wrapper = styled(Responsive)`
   .logo {
     font-size: 1.125rem;
     font-weight: 800;
-    letter-spacing: 2px;
   }
   .right {
     display: flex;
@@ -48,7 +47,7 @@ const Header = ({ user, onLogout }) => {
       <HeaderBlock>
         <Wrapper>
           <Link to="/" className="logo">
-            REACTERS
+            Camping Reservation Memo
           </Link>
           {user ? (
             <div className="right">
