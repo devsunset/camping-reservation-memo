@@ -18,7 +18,7 @@ mongoose
   .then(() => {
     console.log('Connected to MongoDB');
   })
-  .catch(e => {
+  .catch((e) => {
     console.error(e);
   });
 
@@ -35,9 +35,9 @@ app.use(jwtMiddleware);
 // app 인스턴스에 라우터 적용
 app.use(router.routes()).use(router.allowedMethods());
 
-const buildDirectory = path.resolve(__dirname, '../../blog-frontend/build');
+const buildDirectory = path.resolve(__dirname, '../../frontend/build');
 app.use(serve(buildDirectory));
-app.use(async ctx => {
+app.use(async (ctx) => {
   // Not Found 이고, 주소가 /api 로 시작하지 않는 경우
   if (ctx.status === 404 && ctx.path.indexOf('/api') !== 0) {
     // index.html 내용을 반환
