@@ -11,8 +11,9 @@ import Button from '../common/Button';
 const AuthFormBlock = styled.div`
   h3 {
     margin: 0;
-    color: ${palette.gray[8]};
+    color: ${palette.cyan[7]};
     margin-bottom: 1rem;
+    text-align: center;
   }
 `;
 
@@ -56,7 +57,7 @@ const ButtonWithMarginTop = styled(Button)`
 
 const textMap = {
   login: '로그인',
-  register: '회원가입'
+  register: '회원가입',
 };
 
 /**
