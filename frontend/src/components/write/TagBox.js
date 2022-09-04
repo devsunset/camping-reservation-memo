@@ -18,6 +18,7 @@ const TagForm = styled.form`
   border-radius: 4px;
   overflow: hidden;
   display: flex;
+  margin-left: 1rem;
   width: 100%;
   border: 1px solid ${palette.gray[9]}; /* 스타일 초기화 */
   input,
@@ -28,7 +29,7 @@ const TagForm = styled.form`
   }
 
   input {
-    padding: 0.5rem;
+    padding-left: 0.5rem;
     flex: 1;
   }
   button {
@@ -117,13 +118,9 @@ const TagBox = ({ tags, onChangeTags }) => {
 
   return (
     <TagBoxBlock>
-      <h4>태그</h4>
+      <h4>&nbsp;&nbsp;&nbsp;&nbsp;예약일자</h4>
       <TagForm onSubmit={onSubmit}>
-        <input
-          placeholder="태그를 입력하세요"
-          value={input}
-          onChange={onChange}
-        />
+        <input placeholder="예약일자" value={input} onChange={onChange} />
         <button type="submit">추가</button>
       </TagForm>
       <TagList tags={localTags} onRemove={onRemove} />

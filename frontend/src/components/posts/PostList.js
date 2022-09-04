@@ -74,22 +74,21 @@ const PostList = ({ posts, loading, error, showWriteButton }) => {
   moment.locale('ko-KR');
   const localizer = momentLocalizer(moment);
 
-  const reservation_day = [
-    {
-      title: '천왕산 캠핑장',
-      allDay: true,
-      start: new Date(2022, 8, 9),
-      end: new Date(2022, 8, 9),
-      id: '1',
-    },
-    {
-      title: '도덕산 캠핑장',
-      allDay: true,
-      start: new Date(2022, 8, 9),
-      end: new Date(2022, 8, 9),
-      id: '2',
-    },
-  ];
+  let reservation_day = [];
+
+  if (!loading && posts) {
+    posts.forEach((item) => {
+      console.log(item);
+
+      reservation_day.push({
+        title: item.title,
+        allDay: true,
+        start: new Date(2022, 8, 9),
+        end: new Date(2022, 8, 9),
+        id: item._id,
+      });
+    });
+  }
 
   return (
     <PostListBlock>
@@ -118,8 +117,7 @@ const PostList = ({ posts, loading, error, showWriteButton }) => {
           );
         }}
         onSelectEvent={(event) => {
-          alert('onSelectEvent ' + event.title + '  : ' + event.id);
-          navigate('/@${user.username}/63128c6902e5f30875ce93d0');
+          navigate('/@${user.username}/' + event.id);
         }}
         style={{ height: 400 }}
       />
