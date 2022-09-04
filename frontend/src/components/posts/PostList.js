@@ -100,22 +100,32 @@ const PostList = ({ posts, loading, error, showWriteButton }) => {
         views={['month']}
         selectable
         onSelectSlot={(e) => {
-          if (Date.now() - 1 > e.start) {
-            alert('과거 날짜 작성 불가. ');
+          let today = new Date();
+          let preDay =
+            today.getFullYear() +
+            '' +
+            (today.getMonth() < 10
+              ? '0' + (today.getMonth() + 1)
+              : today.getMonth() + 1) +
+            '' +
+            (today.getDate() < 10 ? '0' + today.getDate() : today.getDate());
+
+          let selectedDay =
+            e.start.getFullYear() +
+            '' +
+            (e.start.getMonth() < 10
+              ? '0' + (e.start.getMonth() + 1)
+              : e.start.getMonth() + 1) +
+            '' +
+            (e.start.getDate() < 10
+              ? '0' + e.start.getDate()
+              : e.start.getDate());
+
+          if (parseInt(preDay) > parseInt(selectedDay)) {
+            alert('과거 날짜 작성 불가');
             return;
           }
 
-          alert(
-            e.start.getFullYear() +
-              '-' +
-              (e.start.getMonth() < 10
-                ? '0' + (e.start.getMonth() + 1)
-                : e.start.getMonth() + 1) +
-              '-' +
-              (e.start.getDate() < 10
-                ? '0' + e.start.getDate()
-                : e.start.getDate()),
-          );
           navigate(
             '/write?reservation_day=' +
               e.start.getFullYear() +

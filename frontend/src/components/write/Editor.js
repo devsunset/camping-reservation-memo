@@ -40,7 +40,7 @@ const Editor = ({ title, body, onChangeField }) => {
   useEffect(() => {
     quillInstance.current = new Quill(quillElement.current, {
       theme: 'snow',
-      placeholder: '메모 기록 ...',
+      placeholder: '사이트 번호 및 비고 기록 ...',
       modules: {
         // 더 많은 옵션
         // https://quilljs.com/docs/modules/toolbar/ 참고
