@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import styled from 'styled-components';
 import palette from '../../lib/styles/palette';
+import { useLocation } from 'react-router-dom';
 
 const TagBoxBlock = styled.div`
   width: 100%;
@@ -20,7 +21,6 @@ const TagForm = styled.form`
   display: flex;
   margin-left: 1rem;
   width: 100%;
-  border: 1px solid ${palette.gray[9]}; /* 스타일 초기화 */
   input,
   button {
     outline: none;
@@ -111,8 +111,19 @@ const TagBox = ({ tags, onChangeTags }) => {
     [input, insertTag],
   );
 
+  const search = useLocation().search;
+  const reservation_day = new URLSearchParams(search).get('reservation_day');
+
   // tags 값이 바뀔 때
   useEffect(() => {
+    if (
+      reservation_day !== undefined &&
+      reservation_day !== null &&
+      reservation_day !== ''
+    ) {
+      insertTag(reservation_day);
+    }
+
     setLocalTags(tags);
   }, [tags]);
 
@@ -120,8 +131,13 @@ const TagBox = ({ tags, onChangeTags }) => {
     <TagBoxBlock>
       <h4>&nbsp;&nbsp;&nbsp;&nbsp;예약일자</h4>
       <TagForm onSubmit={onSubmit}>
-        <input placeholder="예약일자" value={input} onChange={onChange} />
-        <button type="submit">추가</button>
+        <input
+          type="hidden"
+          placeholder="예약일자"
+          value={input}
+          onChange={onChange}
+        />
+        {/* <button type="submit">추가</button> */}
       </TagForm>
       <TagList tags={localTags} onRemove={onRemove} />
     </TagBoxBlock>

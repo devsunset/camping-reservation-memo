@@ -40,7 +40,7 @@ const Editor = ({ title, body, onChangeField }) => {
   useEffect(() => {
     quillInstance.current = new Quill(quillElement.current, {
       theme: 'snow',
-      placeholder: '내용을 작성하세요...',
+      placeholder: '메모 기록 ...',
       modules: {
         // 더 많은 옵션
         // https://quilljs.com/docs/modules/toolbar/ 참고
@@ -77,7 +77,7 @@ const Editor = ({ title, body, onChangeField }) => {
   return (
     <EditorBlock>
       <TitleInput
-        placeholder="캠핑장을 입력하세요"
+        placeholder="캠핑장 입력"
         onChange={onChangeTitle}
         value={title}
       />
