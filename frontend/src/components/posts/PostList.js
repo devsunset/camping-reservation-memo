@@ -77,14 +77,14 @@ const PostList = ({ posts, loading, error, showWriteButton }) => {
       allDay: true,
       start: new Date(2022, 8, 9),
       end: new Date(2022, 8, 9),
-      id: '123456',
+      id: '1',
     },
     {
       title: '도덕산 캠핑장',
       allDay: true,
       start: new Date(2022, 8, 9),
       end: new Date(2022, 8, 9),
-      id: 'abcdef',
+      id: '2',
     },
   ];
 
@@ -94,7 +94,11 @@ const PostList = ({ posts, loading, error, showWriteButton }) => {
         localizer={localizer}
         events={reservation_day}
         views={['month']}
-        onSelectEvent={(event) => alert(event.title + '  : ' + event.id)}
+        selectable
+        onSelectSlot={(e) => alert(JSON.stringify(e))}
+        onSelectEvent={(event) => {
+          alert('onSelectEvent ' + event.title + '  : ' + event.id);
+        }}
         style={{ height: 600 }}
       />
       <WritePostButtonWrapper>
