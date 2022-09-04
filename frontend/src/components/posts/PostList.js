@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useCallback } from 'react';
 import styled from 'styled-components';
 import Responsive from '../common/Responsive';
 import Button from '../common/Button';
@@ -77,14 +77,20 @@ const PostList = ({ posts, loading, error, showWriteButton }) => {
       allDay: true,
       start: new Date(2022, 8, 9),
       end: new Date(2022, 8, 9),
+      id: '123456',
     },
     {
       title: '도덕산 캠핑장',
       allDay: true,
       start: new Date(2022, 8, 9),
       end: new Date(2022, 8, 9),
+      id: 'abcdef',
     },
   ];
+
+  const handleEventClick = () => {
+    console.log('event clicked!');
+  };
 
   return (
     <PostListBlock>
@@ -92,6 +98,7 @@ const PostList = ({ posts, loading, error, showWriteButton }) => {
         localizer={localizer}
         events={reservation_day}
         views={['month']}
+        onSelectEvent={(event) => alert(event.title + '  : ' + event.id)}
         style={{ height: 600 }}
       />
       <WritePostButtonWrapper>
