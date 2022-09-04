@@ -95,12 +95,27 @@ const PostList = ({ posts, loading, error, showWriteButton }) => {
     <PostListBlock>
       <Calendar
         localizer={localizer}
+        longPressThreshold={10}
         events={reservation_day}
         views={['month']}
         selectable
         onSelectSlot={(e) => {
           alert(JSON.stringify(e));
-          navigate('/write');
+          alert(
+            e.start.getFullYear() +
+              '-' +
+              e.start.getMonth() +
+              '-' +
+              e.start.getDate(),
+          );
+          navigate(
+            '/write?reservation_day=' +
+              e.start.getFullYear() +
+              '-' +
+              e.start.getMonth() +
+              '-' +
+              e.start.getDate(),
+          );
         }}
         onSelectEvent={(event) => {
           alert('onSelectEvent ' + event.title + '  : ' + event.id);

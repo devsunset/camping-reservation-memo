@@ -26,7 +26,7 @@ const QuillWrapper = styled.div`
     min-height: 320px;
     font-size: 1.125rem;
     line-height: 1.5;
-    border: 1px solid ${palette.gray[9]}; /* 스타일 초기화 */
+    border: 1px solid ${palette.gray[4]}; /* 스타일 초기화 */
   }
   .ql-editor.ql-blank::before {
     left: 0px;
@@ -77,7 +77,7 @@ const Editor = ({ title, body, onChangeField }) => {
   return (
     <EditorBlock>
       <TitleInput
-        placeholder="제목을 입력하세요"
+        placeholder="캠핑장을 입력하세요"
         onChange={onChangeTitle}
         value={title}
       />

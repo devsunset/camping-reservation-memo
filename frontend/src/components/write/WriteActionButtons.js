@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Button from '../common/Button';
 
 const WriteActionButtonsBlock = styled.div`
+  float: right;
   margin-top: 1rem;
   margin-bottom: 3rem;
   button + button {
