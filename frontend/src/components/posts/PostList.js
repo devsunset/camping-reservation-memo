@@ -91,9 +91,7 @@ const PostList = ({ posts, loading, error, showWriteButton }) => {
       <Calendar
         localizer={localizer}
         events={reservation_day}
-        view={'month'}
         views={['month']}
-        step={60}
         style={{ height: 600 }}
       />
       <WritePostButtonWrapper>
