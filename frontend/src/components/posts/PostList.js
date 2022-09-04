@@ -86,6 +86,7 @@ const PostList = ({ posts, loading, error, showWriteButton }) => {
         start: new Date(2022, 8, 9),
         end: new Date(2022, 8, 9),
         id: item._id,
+        username: item.user.username,
       });
     });
   }
@@ -117,7 +118,7 @@ const PostList = ({ posts, loading, error, showWriteButton }) => {
           );
         }}
         onSelectEvent={(event) => {
-          navigate('/@${user.username}/' + event.id);
+          navigate('/@' + event.username + '/' + event.id);
         }}
         style={{ height: 400 }}
       />
