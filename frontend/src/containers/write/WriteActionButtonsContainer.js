@@ -33,8 +33,6 @@ const WriteActionButtonsContainer = () => {
 
     if (originalPostId) {
       dispatch(updatePost({ title, body, tags, id: originalPostId }));
-      //To-Do 저장후 첫화면으로 어떻게 갈까 ?
-      document.location = '/';
       return;
     }
     dispatch(
@@ -44,8 +42,6 @@ const WriteActionButtonsContainer = () => {
         tags,
       }),
     );
-    //To-Do 저장후 첫화면으로 어떻게 갈까 ?
-    document.location = '/';
   };
 
   // 취소

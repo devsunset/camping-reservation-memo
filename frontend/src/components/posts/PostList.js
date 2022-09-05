@@ -118,7 +118,7 @@ const PostList = ({ posts, loading, error, showWriteButton }) => {
           let preDay =
             today.getFullYear() +
             '' +
-            (today.getMonth() < 10
+            (today.getMonth() < 9
               ? '0' + (today.getMonth() + 1)
               : today.getMonth() + 1) +
             '' +
@@ -127,7 +127,7 @@ const PostList = ({ posts, loading, error, showWriteButton }) => {
           let selectedDay =
             e.start.getFullYear() +
             '' +
-            (e.start.getMonth() < 10
+            (e.start.getMonth() < 9
               ? '0' + (e.start.getMonth() + 1)
               : e.start.getMonth() + 1) +
             '' +
@@ -150,7 +150,7 @@ const PostList = ({ posts, loading, error, showWriteButton }) => {
             '/write?reservation_day=' +
               e.start.getFullYear() +
               '-' +
-              (e.start.getMonth() < 10
+              (e.start.getMonth() < 9
                 ? '0' + (e.start.getMonth() + 1)
                 : e.start.getMonth() + 1) +
               '-' +

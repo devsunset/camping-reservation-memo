@@ -105,7 +105,7 @@ export const list = async (ctx) => {
   let nowDay =
     today.getFullYear() +
     '-' +
-    (today.getMonth() < 10
+    (today.getMonth() < 9
       ? '0' + (today.getMonth() + 1)
       : today.getMonth() + 1) +
     '-' +
