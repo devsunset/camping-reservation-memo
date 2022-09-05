@@ -29,6 +29,7 @@ function* logoutSaga() {
   try {
     yield call(authAPI.logout); // logout API 호출
     localStorage.removeItem('user'); // localStorage 에서 user 제거
+    document.location = '/';
   } catch (e) {
     console.log(e);
   }

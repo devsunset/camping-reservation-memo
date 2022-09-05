@@ -86,8 +86,6 @@ const PostList = ({ posts, loading, error, showWriteButton }) => {
 
   if (!loading && posts) {
     posts.forEach((item) => {
-      console.log(item);
-
       reservation_day.push({
         title: item.title,
         allDay: true,

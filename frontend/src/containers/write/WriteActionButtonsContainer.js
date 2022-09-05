@@ -42,6 +42,7 @@ const WriteActionButtonsContainer = () => {
         tags,
       }),
     );
+    // document.location = '/';
   };
 
   // 취소
