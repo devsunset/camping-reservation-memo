@@ -126,7 +126,6 @@ const TagBox = ({ tags, onChangeTags }) => {
     ) {
       insertTag(reservation_day);
     }
-
     setLocalTags(tags);
   }, [tags]);
 
