@@ -111,10 +111,13 @@ export const list = async (ctx) => {
     '-' +
     (today.getDate() < 10 ? '0' + today.getDate() : today.getDate());
 
-  const { tag, username } = ctx.query;
+  // const { tag, username } = ctx.query;
   const query = {
-    ...(username ? { 'user.username': username } : {}),
-    ...(tag ? { tags: tag } : {}),
+    // ...(username ? { 'user.username': username } : {}),
+    // 세션 로그인한 사용자 데이타만 조회 처리
+    ...{ 'user.username': ctx.state.user.username },
+    // ...(tag ? { tags: tag } : {}),
+    // 현재 일자 이전 데이타는 조회 대상 제외
     ...{ tags: { $gte: nowDay } },
   };
 
