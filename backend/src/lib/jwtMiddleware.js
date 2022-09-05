@@ -15,7 +15,7 @@ const jwtMiddleware = async (ctx, next) => {
       const user = await User.findById(decoded._id);
       const token = user.generateToken();
       ctx.cookies.set('access_token', token, {
-        maxAge: 1000 * 60 * 60 * 24 * 7,
+        maxAge: 1000 * 60 * 60 * 24 * 30,
         httpOnly: true,
       });
     }
