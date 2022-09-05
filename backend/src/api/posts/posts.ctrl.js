@@ -101,10 +101,21 @@ export const list = async (ctx) => {
     return;
   }
 
+  let today = new Date();
+  let nowDay =
+    today.getFullYear() +
+    '-' +
+    (today.getMonth() < 10
+      ? '0' + (today.getMonth() + 1)
+      : today.getMonth() + 1) +
+    '-' +
+    (today.getDate() < 10 ? '0' + today.getDate() : today.getDate());
+
   const { tag, username } = ctx.query;
   const query = {
     ...(username ? { 'user.username': username } : {}),
     ...(tag ? { tags: tag } : {}),
+    ...{ tags: { $gte: nowDay } },
   };
 
   try {
