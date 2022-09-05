@@ -20,6 +20,17 @@ const WriteActionButtonsContainer = () => {
 
   // 포스트 등록
   const onPublish = () => {
+    if (title.trim() === '') {
+      alert('캠핑장명을 입력해 주세요');
+      return;
+    }
+
+    let temp = body;
+    if (temp.trim().replace(/<[^>]*>?/g, '') === '') {
+      alert('사이트 번호 및 비고 내용을 입력해 주세요 ');
+      return;
+    }
+
     if (originalPostId) {
       dispatch(updatePost({ title, body, tags, id: originalPostId }));
       return;
