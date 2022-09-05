@@ -33,6 +33,7 @@ const WriteActionButtonsContainer = () => {
 
     if (originalPostId) {
       dispatch(updatePost({ title, body, tags, id: originalPostId }));
+      document.location = '/';
       return;
     }
     dispatch(
@@ -42,7 +43,7 @@ const WriteActionButtonsContainer = () => {
         tags,
       }),
     );
-    // document.location = '/';
+    document.location = '/';
   };
 
   // 취소
