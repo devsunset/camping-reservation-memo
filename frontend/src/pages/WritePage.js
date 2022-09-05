@@ -11,9 +11,8 @@ const WritePage = () => {
       <Helmet>
         <title>글 작성하기 - Camping Reservation Memo</title>
       </Helmet>
-
-      <EditorContainer />
       <TagBoxContainer />
+      <EditorContainer />
       <WriteActionButtonsContainer />
     </Responsive>
   );

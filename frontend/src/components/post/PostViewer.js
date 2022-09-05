@@ -11,10 +11,10 @@ const PostViewerBlock = styled(Responsive)`
 `;
 const PostHead = styled.div`
   border-bottom: 1px solid ${palette.gray[2]};
-  padding-bottom: 3rem;
-  margin-bottom: 3rem;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
   h1 {
-    font-size: 3rem;
+    font-size: 2rem;
     line-height: 1.5;
     margin: 0;
   }
@@ -47,15 +47,20 @@ const PostViewer = ({ post, error, loading, actionButtons, ownPost }) => {
       </Helmet>
 
       <PostHead>
-        <h1>{title}</h1>
+        <h2>
+          예약 일자 <Tags tags={tags} />
+        </h2>
+        <hr />
+        <h3>{title}</h3>
+        <hr />
         <SubInfo
           username={user.username}
           publishedDate={publishedDate}
           hasMarginTop
         />
-        <Tags tags={tags} />
+        {actionButtons}
       </PostHead>
-      {actionButtons}
+      <hr />
       <PostContent dangerouslySetInnerHTML={{ __html: body }} />
     </PostViewerBlock>
   );

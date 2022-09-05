@@ -8,10 +8,10 @@ const TagBoxBlock = styled.div`
   border-top: 1px solid ${palette.gray[2]};
   padding-top: 2rem;
 
-  h4 {
+  h1 {
     color: ${palette.gray[8]};
-    margin-top: 0;
-    margin-bottom: 0.5rem;
+    margin: 0rem;
+    padding: 1rem;
   }
 `;
 
@@ -62,7 +62,10 @@ const TagListBlock = styled.div`
 
 // React.memo를 사용하여 tag 값이 바뀔 때만 리렌더링되도록 처리
 const TagItem = React.memo(({ tag, onRemove, onChangeTags }) => (
-  <Tag onClick={() => onRemove(tag)}>#{tag}</Tag>
+  // <Tag onClick={() => onRemove(tag)}>#{tag}</Tag>
+  <Tag>
+    <h1>예약 일자 : {tag}</h1>
+  </Tag>
 ));
 
 // React.memo를 사용하여 tags 값이 바뀔 때만 리렌더링되도록 처리
@@ -129,7 +132,7 @@ const TagBox = ({ tags, onChangeTags }) => {
 
   return (
     <TagBoxBlock>
-      <h4>&nbsp;&nbsp;&nbsp;&nbsp;예약일자</h4>
+      {/* <h1>&nbsp;&nbsp;&nbsp;&nbsp;예약일자</h1> */}
       <TagForm onSubmit={onSubmit}>
         <input
           type="hidden"
