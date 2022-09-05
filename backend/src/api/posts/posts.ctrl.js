@@ -122,11 +122,11 @@ export const list = async (ctx) => {
     const posts = await Post.find(query)
       .sort({ tags: 1 })
       .limit(100)
-      .skip((page - 1) * 100)
+      .skip((page - 1) * 1000)
       .lean()
       .exec();
     const postCount = await Post.countDocuments(query).exec();
-    ctx.set('Last-Page', Math.ceil(postCount / 10));
+    ctx.set('Last-Page', Math.ceil(postCount / 1000));
     ctx.body = posts.map((post) => ({
       ...post,
       body: removeHtmlAndShorten(post.body),
