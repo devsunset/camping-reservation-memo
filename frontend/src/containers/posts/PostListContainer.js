@@ -25,7 +25,6 @@ const PostListContainer = () => {
     const page = parseInt(searchParams.get('page'), 10) || 1;
 
     if (user) {
-      username = user.username;
       dispatch(listPosts({ tag, username, page }));
     } else {
       navigate('/login');
