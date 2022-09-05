@@ -110,8 +110,8 @@ export const list = async (ctx) => {
   try {
     const posts = await Post.find(query)
       .sort({ _id: -1 })
-      .limit(10)
-      .skip((page - 1) * 10)
+      .limit(100)
+      .skip((page - 1) * 100)
       .lean()
       .exec();
     const postCount = await Post.countDocuments(query).exec();

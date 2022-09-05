@@ -51,13 +51,18 @@ const PostItem = ({ post }) => {
   return (
     <PostItemBlock>
       <h2>
-        <Link to={`/@${user.username}/${_id}`}>{title}</Link>
+        <Link to={`/@${user.username}/${_id}`}>
+          예약 일자 <Tags tags={tags} />
+        </Link>
       </h2>
+      <h3>
+        <Link to={`/@${user.username}/${_id}`}>캠핑장 : {title}</Link>
+      </h3>
       <SubInfo
         username={user.username}
         publishedDate={new Date(publishedDate)}
       />
-      <Tags tags={tags} />
+
       <p>{body}</p>
     </PostItemBlock>
   );

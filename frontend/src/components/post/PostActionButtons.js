@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import palette from '../../lib/styles/palette';
 import AskRemoveModal from './AskRemoveModal';
+import { useNavigate } from 'react-router-dom';
 
 const PostActionButtonsBlock = styled.div`
   display: flex;
@@ -30,6 +31,9 @@ const ActionButton = styled.button`
 
 const PostActionButtons = ({ onEdit, onRemove }) => {
   const [modal, setModal] = useState(false);
+
+  const navigate = useNavigate();
+
   const onRemoveClick = () => {
     setModal(true);
   };
@@ -40,12 +44,16 @@ const PostActionButtons = ({ onEdit, onRemove }) => {
     setModal(false);
     onRemove();
   };
+  const onList = () => {
+    navigate('/');
+  };
 
   return (
     <>
       <PostActionButtonsBlock>
         <ActionButton onClick={onEdit}>수정</ActionButton>
         <ActionButton onClick={onRemoveClick}>삭제</ActionButton>
+        <ActionButton onClick={onList}>목록</ActionButton>
       </PostActionButtonsBlock>
       <AskRemoveModal
         visible={modal}
