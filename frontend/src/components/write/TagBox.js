@@ -2,6 +2,7 @@ import React, { useState, useCallback, useEffect } from 'react';
 import styled from 'styled-components';
 import palette from '../../lib/styles/palette';
 import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const TagBoxBlock = styled.div`
   width: 100%;
@@ -117,6 +118,25 @@ const TagBox = ({ tags, onChangeTags }) => {
   const search = useLocation().search;
   const reservation_day = new URLSearchParams(search).get('reservation_day');
 
+  const checkValidDate = (value) => {
+    let result = true;
+    try {
+      let date = value.split('-');
+      let y = parseInt(date[0], 10),
+        m = parseInt(date[1], 10),
+        d = parseInt(date[2], 10);
+
+      let dateRegex =
+        /^(?=\d)(?:(?:31(?!.(?:0?[2469]|11))|(?:30|29)(?!.0?2)|29(?=.0?2.(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00)))(?:\x20|$))|(?:2[0-8]|1\d|0?[1-9]))([-.\/])(?:1[012]|0?[1-9])\1(?:1[6-9]|[2-9]\d)?\d\d(?:(?=\x20\d)\x20|$))?(((0?[1-9]|1[012])(:[0-5]\d){0,2}(\x20[AP]M))|([01]\d|2[0-3])(:[0-5]\d){1,2})?$/;
+      result = dateRegex.test(d + '-' + m + '-' + y);
+    } catch (err) {
+      result = false;
+    }
+    return result;
+  };
+
+  const navigate = useNavigate();
+
   // tags 값이 바뀔 때
   useEffect(() => {
     if (
@@ -124,7 +144,16 @@ const TagBox = ({ tags, onChangeTags }) => {
       reservation_day !== null &&
       reservation_day !== ''
     ) {
+      if (!checkValidDate(reservation_day)) {
+        alert('잘못된 접근 입니다.');
+        navigate('/');
+      }
       insertTag(reservation_day);
+    } else {
+      if (tags.length === 0) {
+        alert('잘못된 접근 입니다.');
+        navigate('/');
+      }
     }
     setLocalTags(tags);
   }, [tags]);
