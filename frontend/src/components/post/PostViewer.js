@@ -43,7 +43,7 @@ const PostViewer = ({ post, error, loading, actionButtons, ownPost }) => {
   return (
     <PostViewerBlock>
       <Helmet>
-        <title>{title} - Camping Reservation Memo</title>
+        <title>{title} - Camping Reservation</title>
       </Helmet>
 
       <PostHead>

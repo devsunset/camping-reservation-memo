@@ -47,16 +47,16 @@ const Header = ({ user, onLogout }) => {
       <HeaderBlock>
         <Wrapper>
           <Link to="/" className="logo">
-            Camping Reservation Memo
+            Camping Reservation
           </Link>
           {user ? (
             <div className="right">
               <UserInfo>{user.username}</UserInfo>
-              <Button onClick={onLogout}>로그아웃</Button>
+              <Button onClick={onLogout}>OUT</Button>
             </div>
           ) : (
             <div className="right">
-              <Button to="/login">로그인</Button>
+              <Button to="/login">IN</Button>
             </div>
           )}
         </Wrapper>
