@@ -109,7 +109,7 @@ export const list = async (ctx) => {
 
   try {
     const posts = await Post.find(query)
-      .sort({ _id: -1 })
+      .sort({ tags: 1 })
       .limit(100)
       .skip((page - 1) * 100)
       .lean()

@@ -88,8 +88,16 @@ const PostList = ({ posts, loading, error, showWriteButton }) => {
       reservation_day.push({
         title: item.title,
         allDay: true,
-        start: new Date(2022, 8, 9),
-        end: new Date(2022, 8, 9),
+        start: new Date(
+          item.tags[0].substring(0, 4),
+          parseInt(item.tags[0].substring(5, 7)) - 1,
+          parseInt(item.tags[0].substring(8, 10)),
+        ),
+        end: new Date(
+          item.tags[0].substring(0, 4),
+          parseInt(item.tags[0].substring(5, 7)) - 1,
+          parseInt(item.tags[0].substring(8, 10)),
+        ),
         id: item._id,
         username: item.user.username,
       });
