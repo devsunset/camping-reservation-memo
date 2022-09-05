@@ -10,6 +10,7 @@ import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const PostListBlock = styled(Responsive)`
   margin-top: 3rem;
@@ -70,6 +71,8 @@ const PostItem = ({ post }) => {
 
 const PostList = ({ posts, loading, error, showWriteButton }) => {
   const navigate = useNavigate();
+
+  const { user } = useSelector(({ user }) => ({ user: user.user }));
 
   // 에러 발생 시
   if (error) {
@@ -133,6 +136,12 @@ const PostList = ({ posts, loading, error, showWriteButton }) => {
             (e.start.getDate() < 10
               ? '0' + e.start.getDate()
               : e.start.getDate());
+
+          if (!user) {
+            alert('예약 메모 작성은 로그인이 필요합니다.');
+            navigate('/login');
+            return;
+          }
 
           if (parseInt(preDay) > parseInt(selectedDay)) {
             alert('과거 날짜 작성 불가');
