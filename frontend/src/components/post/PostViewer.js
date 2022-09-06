@@ -43,7 +43,7 @@ const PostViewer = ({ post, error, loading, actionButtons, ownPost }) => {
   return (
     <PostViewerBlock>
       <Helmet>
-        <title>{title} - Camping Reservation</title>
+        <title>{title} - Schedule Memo</title>
       </Helmet>
 
       <PostHead>
@@ -51,7 +51,7 @@ const PostViewer = ({ post, error, loading, actionButtons, ownPost }) => {
           예약 일자 <Tags tags={tags} />
         </h2>
         <hr />
-        <h3>캠핑장 : {title}</h3>
+        <h3>Schedule : {title}</h3>
         <hr />
         <SubInfo
           username={user.username}

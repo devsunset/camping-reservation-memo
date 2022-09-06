@@ -47,7 +47,7 @@ const Header = ({ user, onLogout }) => {
       <HeaderBlock>
         <Wrapper>
           <Link to="/" className="logo">
-            Camping Reservation
+            Schedule Memo
           </Link>
           {user ? (
             <div className="right">

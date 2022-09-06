@@ -57,7 +57,7 @@ const PostItem = ({ post }) => {
         </Link>
       </h2>
       <h3>
-        <Link to={`/@${user.username}/${_id}`}>캠핑장 : {title}</Link>
+        <Link to={`/@${user.username}/${_id}`}>Schedule : {title}</Link>
       </h3>
       <SubInfo
         username={user.username}

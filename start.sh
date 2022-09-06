@@ -1,4 +1,4 @@
 cd backend
 yarn start > ../app.log &
-echo "camping-reservation-memo start..."
+echo "schedule-memo start..."
 

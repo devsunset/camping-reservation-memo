@@ -77,7 +77,7 @@ const Editor = ({ title, body, onChangeField }) => {
   return (
     <EditorBlock>
       <TitleInput
-        placeholder="캠핑장 입력"
+        placeholder="Schedule 입력"
         onChange={onChangeTitle}
         value={title}
       />

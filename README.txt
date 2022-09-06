@@ -1,6 +1,6 @@
-# camping-reservation-memo
+# schedule-memo
 
-camping-reservation-memo
+schedule-memo
 
 ---------------------------------------------------------
 
