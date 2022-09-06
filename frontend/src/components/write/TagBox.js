@@ -65,7 +65,7 @@ const TagListBlock = styled.div`
 const TagItem = React.memo(({ tag, onRemove, onChangeTags }) => (
   // <Tag onClick={() => onRemove(tag)}>#{tag}</Tag>
   <Tag>
-    <h1>예약 일자 : {tag}</h1>
+    <h1>일정 : {tag}</h1>
   </Tag>
 ));
 
@@ -160,11 +160,11 @@ const TagBox = ({ tags, onChangeTags }) => {
 
   return (
     <TagBoxBlock>
-      {/* <h1>&nbsp;&nbsp;&nbsp;&nbsp;예약일자</h1> */}
+      {/* <h1>&nbsp;&nbsp;&nbsp;&nbsp;Schedule</h1> */}
       <TagForm onSubmit={onSubmit}>
         <input
           type="hidden"
-          placeholder="예약일자"
+          placeholder="Schedule"
           value={input}
           onChange={onChange}
         />

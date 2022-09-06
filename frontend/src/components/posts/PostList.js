@@ -53,11 +53,11 @@ const PostItem = ({ post }) => {
     <PostItemBlock>
       <h2>
         <Link to={`/@${user.username}/${_id}`}>
-          예약 일자 <Tags tags={tags} />
+          Schedule <Tags tags={tags} />
         </Link>
       </h2>
       <h3>
-        <Link to={`/@${user.username}/${_id}`}>Schedule : {title}</Link>
+        <Link to={`/@${user.username}/${_id}`}>일정 : {title}</Link>
       </h3>
       <SubInfo
         username={user.username}
@@ -136,7 +136,7 @@ const PostList = ({ posts, loading, error, showWriteButton }) => {
               : e.start.getDate());
 
           if (!user) {
-            alert('예약 메모 작성은 로그인이 필요합니다.');
+            alert('메모 작성은 로그인이 필요합니다.');
             navigate('/login');
             return;
           }
