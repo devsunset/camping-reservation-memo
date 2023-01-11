@@ -13,7 +13,7 @@ schedule-memo
 	use admin
 	db.createUser(
 	 {
-	 user: "superadmin",
+	 user: "devsunset",
 	 pwd: "PASSWORD",
 	 roles: [ { role: "root", db: "admin" } ]
 	 })
