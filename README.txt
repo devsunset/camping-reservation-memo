@@ -7,6 +7,16 @@ schedule-memo
 #install & service start
 
 1. mongodb 설치
+  $ docker run -d -p 27017:27017 --name mongo -v /workspace/app/mongo/db:/data/db  mongo --auth  
+  $ docker exec -it mongodb /bin/bash	
+	mongosh
+	use admin
+	db.createUser(
+	 {
+	 user: "superadmin",
+	 pwd: "PASSWORD",
+	 roles: [ { role: "root", db: "admin" } ]
+	 })
 
 2.  backend/.env 파일에 아래 내용 작성 하여 생성
 PORT=4000
