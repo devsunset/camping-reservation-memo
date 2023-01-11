@@ -8,7 +8,7 @@ schedule-memo
 
 1. mongodb 설치
   $ docker run -d -p 27017:27017 --name mongo -v /workspace/app/mongo/db:/data/db  mongo --auth  
-  $ docker exec -it mongodb /bin/bash	
+  $ docker exec -it mongo /bin/bash	
 	mongosh
 	use admin
 	db.createUser(
